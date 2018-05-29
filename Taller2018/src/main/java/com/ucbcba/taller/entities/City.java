@@ -18,6 +18,12 @@ public class City {
     @OneToMany(mappedBy = "city", cascade = CascadeType.ALL)
     private List<Restaurant> restaurantList;
 
+
+
+    @ManyToOne
+    @JoinColumn(name = "country_id")
+    private Country country;
+
     public Integer getId(){return id;}
 
     public String getNombre(){return nombre;}
@@ -30,5 +36,13 @@ public class City {
 
     public void setRestaurantList(List<Restaurant> restaurantList) {
         this.restaurantList = restaurantList;
+    }
+
+    public void setCountry(Country country) {
+        this.country = country;
+    }
+
+    public Country getCountry() {
+        return country;
     }
 }
